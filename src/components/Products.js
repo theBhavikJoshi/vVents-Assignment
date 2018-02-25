@@ -9,7 +9,7 @@ class Products extends Component {
 		let html ='';
 		if(data) {
 			html = data.map((product) => {
-				return <Card key={product.name} name={product.name} slug={product.slug} description={product.description} price={product.meta.display_price.with_tax.formatted} id={product.id} slug={product.slug} />;
+				return <Card key={product.name} name={product.name} description={product.description} price={product.meta.display_price.with_tax.formatted} id={product.id} slug={product.slug} />;
 			});
 		}
 		return html;

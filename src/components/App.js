@@ -7,11 +7,10 @@ import Header from './Header';
 import Homepage from './Homepage';
 import Products from './Products';
 import Product from './Product';
-// import Cart from './Cart';
+import Cart from './Cart';
 // import Checkout from './Checkout';
 // import Payment from './Payment';
 
-const Cart = () => <h2>Cart</h2>;
 const Checkout = () => <h2>Checkout</h2>;
 const Payment = () => <h2>Payment</h2>;
 

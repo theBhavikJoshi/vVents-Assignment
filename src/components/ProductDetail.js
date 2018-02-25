@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 
@@ -15,7 +14,7 @@ class ProductDetail extends Component{
 		const url = slug + '.jpg';
 		return (
 			<div className="row">
-				<div className="col m12">
+				<div className="col m12" style={{height: 600}}>
 			    <img src={url} alt="Drone" width='100%' height='80%'/>
 			  </div>				
 				<div className="m5">

@@ -1,4 +1,11 @@
-import { FETCH_PRODUCTS, FETCH_PRODUCT } from './types.js';
+import { FETCH_PRODUCTS, 
+	FETCH_PRODUCT,
+	FETCH_CART, 
+	ADD_CART, 
+	REMOVE_CART,
+	PLUS_CART,
+	MINUS_CART
+} from './types.js';
 const moltin = require('@moltin/sdk');
 
 const Moltin = moltin.gateway({
@@ -14,4 +21,29 @@ export const fetchProducts = () => async dispatch => {
 export const fetchAProduct = (id) => async dispatch => {
 	const res = await Moltin.Products.Get(id);
 	dispatch({ type: FETCH_PRODUCT, payload: res.data });
+}
+
+export const fetchCart = () => async dispatch => {
+	const res = await Moltin.Cart('abc').Items();
+	dispatch({ type: FETCH_CART, payload: res.data });
+}
+
+export const addToCart = (id) => async dispatch => {
+	const res = await Moltin.Cart("abc").AddProduct(id, 1);
+	dispatch({ type: ADD_CART, payload: res.data });
+}
+
+export const removeFromCart = (id) => async dispatch => {
+	const res = await Moltin.Cart("abc").AddProduct(id, 1);
+	dispatch({ type: REMOVE_CART, payload: res.data });
+}
+
+export const plusCart = (id, quantity) => async dispatch => {
+	const res = await Moltin.Cart('abc').UpdateItemQuantity(id, quantity + 1);
+	dispatch({ type: PLUS_CART, payload: res.data });
+}
+
+export const minusCart = (id, quantity) => async dispatch => {
+	const res = await Moltin.Cart('abc').UpdateItemQuantity(id, quantity - 1);
+	dispatch({ type: MINUS_CART, payload: res.data });
 }
