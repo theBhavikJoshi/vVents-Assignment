@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS } from './types.js';
+import { FETCH_PRODUCTS, FETCH_PRODUCT } from './types.js';
 const moltin = require('@moltin/sdk');
 
 const Moltin = moltin.gateway({
@@ -9,4 +9,9 @@ const Moltin = moltin.gateway({
 export const fetchProducts = () => async dispatch => {
 	const res = await Moltin.Products.All();
 	dispatch({ type: FETCH_PRODUCTS, payload: res.data });
+}
+
+export const fetchAProduct = (id) => async dispatch => {
+	const res = await Moltin.Products.Get(id);
+	dispatch({ type: FETCH_PRODUCT, payload: res.data });
 }
