@@ -5,3 +5,4 @@ export const ADD_CART = 'add_cart';
 export const REMOVE_CART = 'remove_cart';
 export const PLUS_CART = 'plus_cart';
 export const MINUS_CART = 'minus_cart';
+export const CHECKOUT = 'checkout';

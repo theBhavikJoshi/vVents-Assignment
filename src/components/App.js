@@ -8,10 +8,9 @@ import Homepage from './Homepage';
 import Products from './Products';
 import Product from './Product';
 import Cart from './Cart';
-// import Checkout from './Checkout';
+import Checkout from './Checkout';
 // import Payment from './Payment';
 
-const Checkout = () => <h2>Checkout</h2>;
 const Payment = () => <h2>Payment</h2>;
 
 class App extends Component {

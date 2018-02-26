@@ -4,7 +4,8 @@ import { FETCH_PRODUCTS,
 	ADD_CART, 
 	REMOVE_CART,
 	PLUS_CART,
-	MINUS_CART
+	MINUS_CART,
+	CHECKOUT
 } from './types.js';
 const moltin = require('@moltin/sdk');
 
@@ -46,4 +47,13 @@ export const plusCart = (id, quantity) => async dispatch => {
 export const minusCart = (id, quantity) => async dispatch => {
 	const res = await Moltin.Cart('abc').UpdateItemQuantity(id, quantity - 1);
 	dispatch({ type: MINUS_CART, payload: res.data });
+}
+
+export const checkout = (data, history) => async dispatch => {
+	const res = await Moltin.Cart('abc').Checkout(data.customer, data.billing_address, data.shipping_address);
+	history.push({
+	  pathname: '/payment',
+	  search: `?id=${res.data.id}`
+	});
+	dispatch({ type: CHECKOUT, payload: res.data });
 }
