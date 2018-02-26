@@ -18,7 +18,11 @@
 [ ]  Generate a pdf invoice copy of above-processed order and save it on local device [Not mandatory, bonus points if implemented]
 
 ## How to Run the project
-Download the project folder to a folder.
+
+To view the project online, go to:
+https://vvents-mcidhgufbz.now.sh/
+
+Download the project to a folder.
 cd into the folder
 1. yarn / npm install - Let the dependencies be installed
 2. yarn start / npm run start
@@ -32,6 +36,11 @@ This project is hosted here : [vVents-Backend-Live](https://vvents-backend.herok
 To view all the stored transaction, visit [vVents-Backend-Live Stored Transactions](https://vvents-backend.herokuapp.com/transactions)
 
 ### Note: I haven't given much importance towards the UI, because of the time. I have kept UI as minimal and usable as I could have.
+
+### Note: I have used the Javascript version of the Moltin API irrespective of the normal URL version.
+    Requests Were Like this : 'const cart = Moltin.Cart.Items();'
+
+#### Payments has been done using Stripe Payment gateway.
 
 
 ## Screenshots
