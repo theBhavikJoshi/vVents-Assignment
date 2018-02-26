@@ -5,15 +5,17 @@ const Card = ({ name, description, price, id, slug }) => {
 	const url = slug + '.jpg';
 	return (
     
-		<div className="col s12 m7">
-	    <h3 className="header">{name}</h3>
-	    <div className="card horizontal">
+		<div className="col s12 m7" style={{ margin: '50px' }}>
+	    <div className="card horizontal z-depth-5">
 	      <div className="card-image">
 	        <img src={url} alt='drone'/>
 	      </div>
 	      <div className="card-stacked">
 	        <div className="card-content">
+	    			<h3 className="header center">{name}</h3>
 	          <p>{description}</p>
+	          <br/>
+	          <p className='small'>Product ID : {id}</p>
 	        </div>
 	        <h5 className='right-align' style={{paddingRight: 20}}>{price}</h5>
 	        <div className="card-action center-align">

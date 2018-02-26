@@ -14,16 +14,34 @@ class ProductDetail extends Component{
 		const url = slug + '.jpg';
 		return (
 			<div className="row">
-				<div className="col m12" style={{height: 600}}>
+				<div className="col m12" style={{height: 500}}>
 			    <img src={url} alt="Drone" width='100%' height='80%'/>
 			  </div>				
 				<div className="m5">
-					<p style={{fontSize: 20}}>Name : <span style={{fontWeight: 'bold'}}>{name}</span></p>
-					<p style={{fontSize: 20}}>Description : <span style={{fontWeight: 'bold'}}>{description}</span></p>
-					<p style={{fontSize: 20}}>Commodity Type : <span style={{fontWeight: 'bold'}}>{commodity_type}</span></p>
-					<p style={{fontSize: 20}}>Availability : <span style={{fontWeight: 'bold'}}>{stockStatus}</span></p>
-					<p style={{fontSize: 20}}>Stock Quantity : <span style={{fontWeight: 'bold'}}>{stockQuantity}</span></p>
-					<p style={{fontSize: 20}}>Status : <span style={{fontWeight: 'bold'}}>{status}</span></p>
+					<p style={{fontSize: 20}}>
+						<i>Name :</i> 
+						<span style={{fontWeight: 'bold'}}> {name}</span>
+					</p>
+					<p style={{fontSize: 20}}>
+						<i>Description :</i> 
+						<span style={{fontWeight: 'bold'}}> {description}</span>
+					</p>
+					<p style={{fontSize: 20}}>
+						<i>Commodity Type :</i> 
+						<span style={{fontWeight: 'bold'}}> {commodity_type}</span>
+					</p>
+					<p style={{fontSize: 20}}>
+						<i>Availability :</i>
+						<span style={{fontWeight: 'bold'}}> {stockStatus}</span>
+					</p>
+					<p style={{fontSize: 20}}>
+						<i>Stock Quantity :</i> 
+						<span style={{fontWeight: 'bold'}}> {stockQuantity}</span>
+					</p>
+					<p style={{fontSize: 20}}>
+						<i>Status :</i>
+						<span style={{fontWeight: 'bold'}}> {status}</span>
+					</p>
 				</div>
 				<div className="m5">
 					<p style={{fontSize: 40}} className='center-align'>Price: <span style={{fontWeight: 'bold'}}>{price}</span></p>

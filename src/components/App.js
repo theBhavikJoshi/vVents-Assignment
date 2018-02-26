@@ -9,9 +9,7 @@ import Products from './Products';
 import Product from './Product';
 import Cart from './Cart';
 import Checkout from './Checkout';
-// import Payment from './Payment';
-
-const Payment = () => <h2>Payment</h2>;
+import Payment from './Payment';
 
 class App extends Component {
   componentDidMount() {

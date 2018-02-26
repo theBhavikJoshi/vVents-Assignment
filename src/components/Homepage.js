@@ -2,20 +2,20 @@ import React from 'react';
 
 const Homepage = () => {
 	return (
-		<div style={styles.divStyles}>
-			<h2>Welcome to Drone Store!</h2>
+		<div style={styles.divStyles} className='valign-wrapper center'>
+			<h1 style={styles.h1Styles} >Welcome to Drone Store!</h1>
 		</div>
 	)
 }
 
 const styles = {
 	divStyles : {
-		height: '90vh',
+		height: 'calc(100vh - 70px)',
 		backgroundColor: '#EAEAEA',
-		color: '#252A34',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center'
+		color: '#252A34'
+	},
+	h1Styles: {
+		margin: '0 auto'
 	}
 }
 

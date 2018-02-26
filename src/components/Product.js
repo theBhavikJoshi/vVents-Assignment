@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 import ProductDetail from './ProductDetail';
@@ -14,7 +13,6 @@ class Product extends Component {
 	}
 	
 	renderContent(data) {
-		console.log(data);
 		if(data.meta) {
 			return <ProductDetail
 				name={data.name} 

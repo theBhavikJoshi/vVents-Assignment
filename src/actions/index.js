@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { FETCH_PRODUCTS, 
 	FETCH_PRODUCT,
 	FETCH_CART, 
@@ -56,4 +57,24 @@ export const checkout = (data, history) => async dispatch => {
 	  search: `?id=${res.data.id}`
 	});
 	dispatch({ type: CHECKOUT, payload: res.data });
+}
+
+export const payment = (id, data, history) => async dispatch => {
+	const res = await Moltin.Orders.Payment(id, data);
+	if(res) {
+		await Moltin.Cart("{abc}").Delete();
+		const orderReference = await Moltin.Orders.Get(id);
+		if(orderReference.data) {
+			const saveTransaction = await axios.post('https://vvents-backend.herokuapp.com/saveTransaction', {
+				id: orderReference.data.id,
+				payment: orderReference.data.payment,
+				status: orderReference.data.status,
+				type: orderReference.data.order,
+				customerName: orderReference.data.customer.name,
+				customerEmail: orderReference.data.customer.email
+			});
+			console.log(saveTransaction);
+		}
+	}
+	history.push('/');
 }

@@ -16,15 +16,16 @@ class CartCard extends Component {
 		return (
 			<div className="row">
 	      <div className="col s12 m8 offset-m2">
-	        <div className="card blue-grey darken-1">
+	        <div className="card #26a69a teal lighten-1">
 	          <div className="card-content white-text">
-	            <span className="card-title">{name}</span>
-	            <p>{product_id}</p>
-	            <p>{quantity}</p>
-	            <p>{unit_price}</p>
-	            <p>{value}</p>
+	            <span className="card-title center">Item: {name}</span>
+	            <p className='right' style={{ fontSize : 12 }} >Product ID : {product_id}</p>
+	            <br/>
+	            <p className='right' style={{ fontSize : 18 }} >Quantity: {quantity}</p>
+	            <p style={{ fontSize : 18 }}>Unit Price: {unit_price}</p>
+	            <p style={{ fontSize : 18 }}>Total Value: {value}</p>
 	          </div>
-	          <div className="card-action center-align">
+	          <div className="card-action right-align">
 			        <button onClick={() => this.increaseProductQuantity(id, quantity)} className="waves-effect waves-light btn purple darken-3" style={{ margin: 5 }}><i className="material-icons">add</i></button>
 			        <button onClick={() => this.decreaseProductQuantity(id, quantity)} className="waves-effect waves-light btn purple darken-3" style={{ margin: 5 }}><i className="material-icons">remove</i></button>
 			      </div>
