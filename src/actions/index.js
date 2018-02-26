@@ -1,4 +1,6 @@
 import axios from 'axios';
+import wkhtmltopdf from 'wkhtmltopdf';
+
 import { FETCH_PRODUCTS, 
 	FETCH_PRODUCT,
 	FETCH_CART, 
@@ -57,13 +59,25 @@ export const checkout = (data, history) => async dispatch => {
 	  search: `?id=${res.data.id}`
 	});
 	dispatch({ type: CHECKOUT, payload: res.data });
-}
+};
 
 export const payment = (id, data, history) => async dispatch => {
 	const res = await Moltin.Orders.Payment(id, data);
 	if(res) {
 		await Moltin.Cart("{abc}").Delete();
 		const orderReference = await Moltin.Orders.Get(id);
+		// Tried for PDF Generation
+		// const html = `<h1 className="center">Invoice</h1>
+		// 							<h2 className="center">VVENTS</h2>
+		// 							<h3 className="center">LIVE VIDEO EVENTS FOR EVERY OCCASION</h3>
+		// 							<p className="right">Order ID : <i>${orderReference.data.id}</i></p>
+		// 							<p className="left" style={{fontSize : '18'}}>Payment Status : <i>${orderReference.data.payment}</i></p>
+		// 							<p className="left">Order Status: <i>${orderReference.data.status}</i></p>
+		// 							<h5 className="center"><i>${orderReference.data.customer.name}</i></h5>
+		// 							<h6 className="center"><i>${orderReference.data.customer.email}</i></h6>
+		// 							<p className="center">......................</p>
+		// 							<p className="center">Signature</p>`;
+		// await wkhtmltopdf(html, { output: 'out.pdf' });
 		if(orderReference.data) {
 			const saveTransaction = await axios.post('https://vvents-backend.herokuapp.com/saveTransaction', {
 				id: orderReference.data.id,
@@ -76,5 +90,5 @@ export const payment = (id, data, history) => async dispatch => {
 			console.log(saveTransaction);
 		}
 	}
-	history.push('/');
+	history.push('/success');
 }

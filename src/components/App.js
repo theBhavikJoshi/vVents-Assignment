@@ -10,6 +10,7 @@ import Product from './Product';
 import Cart from './Cart';
 import Checkout from './Checkout';
 import Payment from './Payment';
+import Success from './Success';
 
 class App extends Component {
   componentDidMount() {
@@ -27,6 +28,7 @@ class App extends Component {
             <Route exact path='/product' component={Product} />
             <Route exact path='/checkout' component={Checkout} />
             <Route exact path='/payment' component={Payment} />
+            <Route exact path='/success' component={Success} />
           </div>
         </BrowserRouter>
       </div>
